@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Payment </title>
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,900,700,500);
+
+    body {
+      padding: 60px 0;
+      background-color: rgba(178,209,229,0.7);
+      margin: 0 auto;
+      width: 600px;
+    }
+    .body-text {
+      padding: 0 20px 30px 20px;
+      font-family: "Roboto";
+      font-size: 1em;
+      color: #333;
+      text-align: center;
+      line-height: 1.2em;
+    }
+    .form-container {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .card-wrapper {
+      background-color: #6FB7E9;
+      width: 100%;
+      display: flex;
+
+    }
+    .personal-information {
+      background-color: #3C8DC5;
+      color: #fff;
+      padding: 1px 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.3em;
+      font-family: "Roboto"
+    }
+    input {
+      margin: 1px 0;
+      padding-left: 3%;
+      font-size: 14px;
+    }
+    input[type="text"]{
+      display: block;
+      height: 50px;
+      width: 97%;
+      border: none;
+    }
+    input[type="email"]{
+      display: block;
+      height: 50px;
+      width: 97%;
+      border: none;
+    }
+    input[type="button"]{
+      display: block;
+      height: 60px;
+      width: 100%;
+      border: none;
+      background-color: #3C8DC5;
+      color: #fff;
+      margin-top: 2px;
+      curson: pointer;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    input[type="button"]:hover{
+      background-color: #6FB7E9;
+      transition: 0.3s ease;
+    }
+    #fname {
+      width: 46.5%;
+      float: left;
+      margin-bottom: 2px;
+    }
+    #edate {
+      width: 46.5%;
+      float: left;
+      margin-bottom: 2px;
+    }
+    #city {
+      width: 46.5%;
+      float: left;
+      margin-bottom: 2px;
+    }
+    #sname {
+      width: 46.5%;
+      float: right;
+    }
+    #cvv {
+      width: 46.5%;
+      float: right;
+    }
+    #zip {
+      width: 46.5%;
+      float: right;
+    }
+
+    @media only screen and (max-width: 480px){
+      body {
+        width: 100%;
+        margin: 0 auto;
+      }
+      .form-container {
+        margin: 0 2%;
+      }
+      input {
+        font-size: 1em;
+      }
+      #input-button {
+        width: 100%;
+      }
+      #cdno {
+        width: 96.5%;
+      }
+      #email {
+        width: 96.5%;
+      }
+      #add {
+        width: 96.5%;
+      }
+      h1 {
+        font-size: 1.2em;
+      }
+      input {
+        margin: 2px 0;
+      }
+      input[type="submit"]{
+        height: 50px;
+      }
+      /*#column-left {
+        width: 96.5%;
+        display: block;
+        float: none;
+      }
+      #column-right {
+        width: 96.5%;
+        display: block;
+        float: none;
+      }*/
+    }
+  </style>
+  <script type="text/javascript">
+    function sub(){
+      var name = document.getElementById("fname").value
+      var isfnamecorrect=false
+      if(name.length<2){
+        alert("Invalid Name")
+        document.getElementById("fname").focus()
+      }
+      else{
+        isfnamecorrect=true
+      }
+
+      var lname = document.getElementById("sname").value
+      var islnamecorrect=false
+      if(lname.length<2){
+        alert("Invalid Surname")
+        document.getElementById("sname").focus()
+      }
+      else{
+        islnamecorrect=true
+      }
+
+      var cdno = document.getElementById("cdno").value
+      var iscdnocorrecet=false
+      if(cdno.length<=15){
+        alert("Invalid Card Number")
+        document.getElementById("cdno").focus()
+      }
+      else{
+        iscdnocorrecet=true
+      }
+
+      var dt = document.getElementById("edate").value
+      var isdatecorrect=false
+      if(dt.length<5){
+        alert("Invalid Expiry Date")
+        document.getElementById("edate").focus()
+      }
+      else{
+        isdatecorrect=true
+      }
+
+      var stadd = document.getElementById("add").value
+      var isstrcorrect=false
+      if(stadd.length<35){
+        alert("Invalid Street Address")
+        document.getElementById("add").focus()
+      }
+      else{
+        isstrcorrect=true
+      }
+
+      var cit = document.getElementById("city").value
+      var iscitycorrect=false
+      if(cit.length<5){
+        alert("Invalid City Name")
+        document.getElementById("city").focus()
+      }
+      else{
+        iscitycorrect=true
+      }
+
+      var zip = document.getElementById("zip").value
+      var iszipcorrect=false
+      var zp=/^[0-9]{6}(?:-[0-9]{4})?$/;
+      if(zp.test(zip)){
+        iszipcorrect=true
+      }
+      else{
+        alert("Invalid ZipCode")
+        document.getElementById("zip").focus()
+      }
+
+
+      var em = document.getElementById("email").value
+      var isemailcorrect=false
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(!re.test(em)){
+        alert("Invalid Email id")
+        document.getElementById("email").focus()
+      }
+      else{
+        isemailcorrect=true
+      }
+      if(isfnamecorrect&&islnamecorrect&&iscdnocorrecet&&isdatecorrect&&isstrcorrect&&iscitycorrect&&iszipcorrect&&isemailcorrect){
+        alert("Payment Successful.")
+        window.location='homepage.html'
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <div class="body-text"><h2>Your are just one step closer to begin your journey!</h2></div>
+  <form method="post">
+    <div class="form-container">
+      <div class="personal-information">
+        <h1>Payment Information</h1>
+      </div> <!-- end of personal-information -->
+
+      <input id="fname" type="text" name="first-name" required placeholder="First Name" title="e.g" />
+      <input id="sname" type="text" name="last-name" required placeholder="Surname" />
+      <input id="cdno" type="text" name="number" required placeholder="Card Number" minlength="15" maxlength="16"/>
+      <input id="edate" type="text" name="expiry" required placeholder="MM/YY" minlength="5" maxlength="5"/>
+      <input id="cvv" type="text" name="cvc" required placeholder="CVV" minlength="3" maxlentgh="3"/>
+
+      <div class="card-wrapper"></div>
+      
+      <input id="add" type="text" name="streetaddress" required autocomplete="on" placeholder="Street Address"/>
+      <input id="city" type="text" name="city" required autocomplete="on" placeholder="City"/>
+      <input id="zip" type="text" name="zipcode" required autocomplete="on"  maxlength="6" placeholder="ZIP code"/>
+      <input id="email" type="email" name="email" required autocomplete="on" placeholder="Email"/>
+      <input id="input-button" type="button" value="Submit" onclick="sub()"/>
+
+    </form>
+  </div>
+
+</body>
+</html>
